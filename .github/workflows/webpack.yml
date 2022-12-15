@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [14.x]
 
     steps:
     - uses: actions/checkout@v3
@@ -24,5 +24,7 @@ jobs:
 
     - name: Build
       run: |
-        npm install
+        npm install --global yarn
+        yarn
+        npm run build:web
         npm run build:exe
